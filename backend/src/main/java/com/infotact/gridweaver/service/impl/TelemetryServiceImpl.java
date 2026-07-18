@@ -38,6 +38,13 @@ public class TelemetryServiceImpl implements TelemetryService {
     public List<TelemetryDto> getAll() {
         return repository.findAll().stream().map(mapper::toDto).collect(Collectors.toList());
     }
+    @Override
+    public List<TelemetryDto> getLatest() {
+        return repository.findTop50ByOrderByTimestampDesc().stream()
+            .map(mapper::toDto)
+            .collect(Collectors.toList());
+    }
+
     @Override @Transactional
     public void delete(Long id) {
         if (!repository.existsById(id)) throw new ResourceNotFoundException("Not found: " + id);

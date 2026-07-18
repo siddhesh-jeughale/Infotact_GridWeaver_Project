@@ -8,5 +8,6 @@ public interface TelemetryService {
     TelemetryDto update(Long id, TelemetryDto dto);
     TelemetryDto getById(Long id);
     List<TelemetryDto> getAll();
+    List<TelemetryDto> getLatest();
     void delete(Long id);
 }

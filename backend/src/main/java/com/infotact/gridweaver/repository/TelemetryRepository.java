@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TelemetryRepository extends JpaRepository<Telemetry, Long> {
+    java.util.List<Telemetry> findTop50ByOrderByTimestampDesc();
 }

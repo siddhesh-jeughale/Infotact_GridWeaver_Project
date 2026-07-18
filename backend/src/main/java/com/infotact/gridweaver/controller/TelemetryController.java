@@ -29,6 +29,12 @@ public class TelemetryController {
     public ResponseEntity<List<TelemetryDto>> getAll() {
         return ResponseEntity.ok(service.getAll());
     }
+
+    @GetMapping("/latest")
+    public ResponseEntity<List<TelemetryDto>> getLatest() {
+        return ResponseEntity.ok(service.getLatest());
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         service.delete(id);
